@@ -47,9 +47,14 @@ namespace GenericsDemo
 
            var max = this.inputArray[this.inputArray.Length - 1];
 
-            Console.WriteLine("Max is :" + max);
+            printMax(max);
 
             return max;
+        }
+
+        static void printMax(T max)
+        {
+            Console.WriteLine($"Max : {max}");
         }
     }
 
