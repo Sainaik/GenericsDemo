@@ -14,17 +14,17 @@ namespace GenericsDemo
         {
             Console.WriteLine("Welcome to Generics Demo Project!!");
 
-            
-            GenericMaxClass<int> intMax = new GenericMaxClass<int>(10, 200, 200);
+            int[] intArray = { 10, 200, 200,1500 };
+            GenericMaxClass<int> intMax = new GenericMaxClass<int>(intArray);
             intMax.getMaximum();
 
 
-
-            GenericMaxClass<double> doubleMax = new GenericMaxClass<double>(10.1, 20.2, 20.1);
+            double[] doubleArray = { 10.1, 20.2, 20.1, 50.45 };
+            GenericMaxClass<double> doubleMax = new GenericMaxClass<double>(doubleArray);
             doubleMax.getMaximum();
 
-            
-            GenericMaxClass<string> stringMax = new GenericMaxClass<string>("abcd", "143", "ABCD");
+            string[] stringArray = { "abcd", "143", "ABCD", "Apple" };
+            GenericMaxClass<string> stringMax = new GenericMaxClass<string>(stringArray);
             stringMax.getMaximum();
 
 
@@ -35,20 +35,17 @@ namespace GenericsDemo
 
     public class GenericMaxClass<T> where T : IComparable
     {
-        public T input1,  input2,  input3;
-        public GenericMaxClass(T input1, T input2, T input3 )
+        public T[] inputArray;
+        public GenericMaxClass(T[] inputArray)
         {
-            this.input1 = input1;
-            this.input2 = input2;
-            this.input3 = input3;
+            this.inputArray = inputArray;
+            
         }
         public T getMaximum()
         {
+            Array.Sort(inputArray);
 
-
-            var max = this.input1.CompareTo(input2) > 0 ? input1 : (this.input2.CompareTo(input3) > 0 ? input2:input3) ;
-
-            //this.array[this.array.Length - 1];
+           var max = this.inputArray[this.inputArray.Length - 1];
 
             Console.WriteLine("Max is :" + max);
 

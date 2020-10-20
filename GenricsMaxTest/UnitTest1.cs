@@ -7,38 +7,34 @@ namespace GenricsMaxTest
     public class UnitTest1
     {
         [TestMethod]
-        [DataRow(45,3,19,45)]
-        [DataRow(13,99,12,99)]
-        [DataRow(100,1000,10000,10000)]
-        public void FindMax_GivenIntegers_MatchExpcted(int num1, int num2, int num3,int expected)
-        {        
-            GenericMaxClass<int> intMax = new GenericMaxClass<int>(num1,num2,num3);
+       
+        public void FindMax_GivenIntegers_MatchExpcted()
+        {
+            int[] intArray = { 10, 200, 200, 1500 };
+            int expected = 1500;
+            GenericMaxClass<int> intMax = new GenericMaxClass<int>(intArray);
             int actual = intMax.getMaximum();
             Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        [DataRow(45.1, 45.00, 19.7, 45.1)]
-        [DataRow(13.88, 99.00, 12.56, 99.00)]
-        [DataRow(10.0, 10.10, 100.00, 100.00)]
-        public void FindMax_Given3Float_MatchExpected(double num1, double num2, double num3, double expected)
+        public void FindMax_Given3Float_MatchExpected()
         {
-            GenericMaxClass<double> doubleMax = new GenericMaxClass<double>(num1, num2, num3);
+            double[] doubleArray = { 10.1, 20.2, 20.1, 50.45 };
+            double expected = 50.45;
+            GenericMaxClass<double> doubleMax = new GenericMaxClass<double>(doubleArray);
             double actual = doubleMax.getMaximum();
             Assert.AreEqual(expected, actual);
         }
 
 
         [TestMethod]
-        [DataRow("ab","cd","ef","ef")]
-        [DataRow("ABC","ABD","ABB","ABD")]
-        [DataRow("xyz","XYZa","SAI","XYZa")]
-        public void FindMax_Given3Strings_MatchExpected(string str1, string str2, string str3, string expected)
+        public void FindMax_Given3Strings_MatchExpected()
         {
-            GenericMaxClass<string> stringMax = new GenericMaxClass<string>(str1, str2, str3);
-            
+            string[] stringArray = { "abcd", "143", "ABCD", "Apple" };
+            string expected = "Apple";
+            GenericMaxClass<string> stringMax = new GenericMaxClass<string>(stringArray);
             string actual = stringMax.getMaximum();
-
             Assert.AreEqual(expected, actual);
         }
 
