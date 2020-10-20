@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Text;
 
 namespace GenericsDemo
@@ -7,9 +9,15 @@ namespace GenericsDemo
     public class NewProgram
     {
 
-        public int FindMax(int num1, int num2, int num3)
+        public T FindMax<T>(T input1, T input2, T input3)
         {
-            var max = (num1.CompareTo(num2) > 0 ? num1 : (num2.CompareTo(num3) > 0 ? num2 : num3));
+            T[] inputArray = { input1, input2, input3 };
+
+            Array.Sort(inputArray);
+
+            var max = inputArray[inputArray.Length - 1];
+
+
             Console.WriteLine($"Max number is : { max}");
             return max;
 
@@ -46,9 +54,7 @@ namespace GenericsDemo
 
             maxOfStrings.FindMax("abcd", "143", "ABCD");
 
-
-
-
         }
+
     }
 }
