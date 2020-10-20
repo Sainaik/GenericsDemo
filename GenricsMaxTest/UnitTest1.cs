@@ -18,5 +18,18 @@ namespace GenricsMaxTest
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        [DataRow(45.1, 45.00, 19.7, 45.1)]
+        [DataRow(13.88, 99.00, 12.56, 99.00)]
+        [DataRow(10.0, 10.10, 100.00, 100.00)]
+        public void FindMax_Given3Float_MatchExpected(double num1, double num2, double num3, double expected)
+        {
+            NewProgram maxOfDouble = new NewProgram();
+
+            double actual = maxOfDouble.FindMax(num1, num2, num3);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
