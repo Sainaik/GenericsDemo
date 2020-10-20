@@ -31,5 +31,20 @@ namespace GenricsMaxTest
 
             Assert.AreEqual(expected, actual);
         }
+
+
+        [TestMethod]
+        [DataRow("ab","cd","ef","ef")]
+        [DataRow("ABC","ABD","ABB","ABD")]
+        [DataRow("xyz","XYZa","SAI","XYZa")]
+        public void FindMax_Given3Strings_MatchExpected(string str1, string str2, string str3, string expected)
+        {
+            NewProgram maxOfStrings = new NewProgram();
+
+            string actual = maxOfStrings.FindMax(str1, str2, str3);
+
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }

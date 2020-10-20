@@ -23,6 +23,13 @@ namespace GenericsDemo
 
         }
 
+        public string FindMax(string str1, string str2, string str3)
+        {
+            var max = (str1.CompareTo(str2) > 0 ? str1 : (str2.CompareTo(str3) > 0 ? str2 : str3));
+            Console.WriteLine($"Max number is : { max}");
+            return max;
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Generics Demo Project!!");
@@ -34,6 +41,10 @@ namespace GenericsDemo
             NewProgram maxOfDoubles = new NewProgram();
 
             maxOfDoubles.FindMax(10.1, 20.2, 20.1);
+
+            NewProgram maxOfStrings = new NewProgram();
+
+            maxOfStrings.FindMax("abcd", "143", "ABCD");
 
 
 
