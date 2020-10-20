@@ -14,7 +14,7 @@ namespace GenricsMaxTest
         {
             NewProgram maxOfIntegers = new NewProgram();
 
-            int actual = maxOfIntegers.FindMax(num1,num2,num3);
+            int actual = maxOfIntegers.FindMax<int>(num1,num2,num3);
 
             Assert.AreEqual(expected, actual);
         }
@@ -27,7 +27,7 @@ namespace GenricsMaxTest
         {
             NewProgram maxOfDouble = new NewProgram();
 
-            double actual = maxOfDouble.FindMax(num1, num2, num3);
+            double actual = maxOfDouble.FindMax<double>(num1, num2, num3);
 
             Assert.AreEqual(expected, actual);
         }
@@ -41,7 +41,7 @@ namespace GenricsMaxTest
         {
             NewProgram maxOfStrings = new NewProgram();
 
-            string actual = maxOfStrings.FindMax(str1, str2, str3);
+            string actual = maxOfStrings.FindMax<string>(str1, str2, str3);
 
             Assert.AreEqual(expected, actual);
         }
